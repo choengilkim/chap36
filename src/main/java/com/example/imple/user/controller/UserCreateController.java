@@ -1,0 +1,66 @@
+//package com.example.imple.user.controller;
+//
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.dao.DuplicateKeyException;
+//import org.springframework.security.crypto.password.PasswordEncoder;
+//import org.springframework.stereotype.Controller;
+//import org.springframework.transaction.annotation.Transactional;
+//import org.springframework.ui.Model;
+//import org.springframework.validation.BindingResult;
+//import org.springframework.web.bind.annotation.RequestMapping;
+//import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+//
+//import com.example.imple.user.mapper.UserMapper;
+//import com.example.imple.user.model.UserDTO;
+//import com.example.standard.controller.CreateController;
+//
+//import jakarta.servlet.http.HttpServletRequest;
+//import lombok.extern.slf4j.Slf4j;
+//
+//@Controller
+//@RequestMapping("/user")
+//@Slf4j
+//public class UserCreateController implements CreateController<UserDTO> {
+//	
+//	@Autowired
+//	UserMapper mapper;
+//	
+//	@Autowired
+//	private PasswordEncoder passEncoder;
+//
+//	@Override
+//	public void create(Model model, HttpServletRequest request) {
+//		log.info("GET create()...");
+//		var error = request.getParameter("error");
+//		if (error == null) { 
+//			var session = request.getSession();
+//			session.removeAttribute("user");
+//			session.removeAttribute("binding");
+//		}
+//	}
+//
+//	@Override
+//	@Transactional
+//	public String create(UserDTO dto, BindingResult binding, Model model, HttpServletRequest request, RedirectAttributes attr) {
+//		log.info("POST create()...");
+//		System.out.println(dto);
+//		
+//		var session = request.getSession();
+//		session.setAttribute("user", dto);
+//		session.setAttribute("binding", binding);
+//		
+//		if (binding.hasErrors())
+//			return "redirect:/user/create?error";
+//		
+//		var user = dto.getModel();
+//		try {
+//			mapper.insertUser(user);
+//		} catch (DuplicateKeyException e) {
+//			binding.reject("duplicate key", "ID가 중복됩니다."); //reject는 글로벌에러로 들어감
+//			return "redirect:/user/create?error";
+//		}
+//		
+//		return "redirect:/user/success?create";
+//	}
+//	
+//}
