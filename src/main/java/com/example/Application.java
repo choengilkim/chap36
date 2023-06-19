@@ -10,7 +10,12 @@ public class Application {
 		System.out.println("###################");
 		System.out.println("# Spring Boot START");
 		System.out.println("###################");
+		
 		SpringApplication.run(Application.class, args);
+		
+		System.out.println("###################");
+		System.out.println("# Spring Boot END");
+		System.out.println("###################");
 	}
 
 }
