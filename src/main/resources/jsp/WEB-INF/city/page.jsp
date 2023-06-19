@@ -14,14 +14,43 @@
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <script src="/webjars/jquery/jquery.min.js"></script>
-
 <title>page.jsp</title>
+<style>
+	ul{
+	   list-style:none;
+	   margin-left: 360px;
+	   }
+</style>
 </head>
 <body>
-<h1>City Page<span>pageNum = ${paging.pageNum}</span></h1>
-<a href="/">Home</a>
+<h1>City Page <button type="button" class="btn btn-secondary">${paging.pageNum}</button></h1>
+<br>
+<button type="button" class="btn btn-dark"><a href="/" style="color: white">Home</a></button>
 <hr>
 <section class="container">
+<table class="table table-dark table-striped table-bordered table-hover">
+		<thead>
+			<tr>
+				<th>id</th>
+				<th>name</th>
+				<th>countryCode</th>
+				<th>district</th>
+				<th>population</th>
+			</tr>
+		</thead>
+		<tbody>
+		<c:forEach var="e" items="${list}">
+			<tr>
+				<td>${e.id}</td>
+				<td><a style="color: gray" href="/city/detail/${e.id}?pageNum=${paging.pageNum}&pageSize=${paging.pageSize}">${e.name}</a></td>
+				<td>${e.countryCode}</td>
+				<td>${e.district}</td>
+				<td align="right"><fmt:formatNumber pattern="###,###,###,###" value="${e.population}"/>
+				</td>
+			</tr>
+		</c:forEach>
+		</tbody>
+	</table><br>
 	<ul class="list-group list-group-horizontal">
 		<li><a href="/city/page/${paging.navigateFirstPage-1}/${paging.pageSize}" class="list-group-item">Previous</a></li>
 	<c:forEach var="n" items="${paging.navigatepageNums}">
@@ -36,41 +65,6 @@
 	</c:forEach>
 		<li><a href="/city/page/${paging.navigateLastPage+1}/${paging.pageSize}" class="list-group-item">Next</a></li>
 	</ul>
-	<hr>
-	
-	<hr>
-	
-	<table class="table table-striped table-bordered table-hover">
-		<thead>
-			<tr>
-				<th>id</th>
-				<th>name</th>
-				<th>countryCode</th>
-				<th>district</th>
-				<th>population</th>
-			</tr>
-		</thead>
-		<tbody>
-		<c:forEach var="e" items="${list}">
-			<tr>
-				<td>${e.id}</td>
-				<td><a href="/city/detail/${e.id}?pageNum=${paging.pageNum}&pageSize=${paging.pageSize}">${e.name}</a></td>
-				<td>${e.countryCode}</td>
-				<td>${e.district}</td>
-				<td align="right">
-				<fmt:formatNumber pattern="###,###,###,###" value="${e.population}"/>
-				</td>
-			</tr>
-		</c:forEach>
-		</tbody>
-	</table>
-	<hr>
-	<div>
-	<pre>
-	${json}
-	</pre>
-	</div>
 </section>
-
 </body>
 </html>

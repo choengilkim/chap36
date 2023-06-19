@@ -38,6 +38,7 @@ public class SecurityConfig {
 			request.requestMatchers("/webjars/**").permitAll();
 			request.requestMatchers("/img/**")	  .permitAll();
 			request.requestMatchers("/user/register").permitAll();
+			request.requestMatchers("/user/success/**").permitAll();
 			
 			request.requestMatchers("/dept/list", 	    "dept/detail/{key}")    .permitAll();
 			request.requestMatchers("/emp/list", 	    "emp/detail/{key}") 	.permitAll();

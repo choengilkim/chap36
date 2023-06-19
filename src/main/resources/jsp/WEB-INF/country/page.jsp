@@ -16,33 +16,22 @@
 <script src="/webjars/jquery/jquery.min.js"></script>
 
 <title>page.jsp</title>
+<style type="text/css">
+ul{
+   list-style:none;
+   margin-left: 35%;
+}
+	   
+</style>
 </head>
 <body>
-<h1>Country Page<span>pageNum = ${paging.pageNum}</span></h1>
-<a href="/">Home</a>
+<h1>Country Page <button type="button" class="btn btn-primary">${paging.pageNum}</button></h1><br>
+<button type="button" class="btn btn-info"><a href="/" style="color: white">Home</a></button>
 <hr>
 <section class="container table-responsive">
-	<ul class="list-group list-group-horizontal">
-		<li><a href="/country/page/${paging.navigateFirstPage-1}/${paging.pageSize}" class="list-group-item">Previous</a></li>
-	<c:forEach var="n" items="${paging.navigatepageNums}">
-		<c:choose>
-			<c:when test="${n eq paging.pageNum}">
-				<li class="list-group-item active"><a href="/country/page/${n}/${paging.pageSize}" class="text-danger">${n}</a></li>
-			</c:when>
-			<c:when test="${n ne paging.pageNum}">
-				<li class="list-group-item 		 "><a href="/country/page/${n}/${paging.pageSize}">${n}</a></li>
-			</c:when>
-		</c:choose>
-	</c:forEach>
-		<li><a href="/country/page/${paging.navigateLastPage+1}/${paging.pageSize}" class="list-group-item">Next</a></li>
-	</ul>
-	<hr>
-	
-	<hr>
-	
 	<table class="table table-striped table-bordered table-hover">
 		<thead>
-			<tr>
+			<tr class="table-primary">
 				<th>code</th>
 				<th>name</th>
 				<th>continent</th>
@@ -62,9 +51,9 @@
 		</thead>
 		<tbody>
 		<c:forEach var="e" items="${list}">
-			<tr>
+			<tr class="table-info">
 				<td>${e.code}</td>
-				<td><a href="/country/detail/${e.code}?pageNum=${paging.pageNum}&pageSize=${paging.pageSize}">${e.name}</a></td>
+				<td><b><a style="color:blue" href="/country/detail/${e.code}?pageNum=${paging.pageNum}&pageSize=${paging.pageSize}">${e.name}</a></b></td>
 				<td>${e.continent.symbol}</td>
 				<td>${e.region}</td>
 				<td>${e.surfaceArea}</td>
@@ -82,13 +71,22 @@
 		</c:forEach>
 		</tbody>
 	</table>
-	<hr>
-	<div>
-	<pre>
-	${json}
-	</pre>
-	</div>
 </section>
-
+	<hr>
+	<ul class="list-group list-group-horizontal">
+		<li><a href="/country/page/${paging.navigateFirstPage-1}/${paging.pageSize}" class="list-group-item">Previous</a></li>
+	<c:forEach var="n" items="${paging.navigatepageNums}">
+		<c:choose>
+			<c:when test="${n eq paging.pageNum}">
+				<li class="list-group-item active"><a href="/country/page/${n}/${paging.pageSize}" class="text-danger">${n}</a></li>
+			</c:when>
+			<c:when test="${n ne paging.pageNum}">
+				<li class="list-group-item 		 "><a href="/country/page/${n}/${paging.pageSize}">${n}</a></li>
+			</c:when>
+		</c:choose>
+	</c:forEach>
+		<li><a href="/country/page/${paging.navigateLastPage+1}/${paging.pageSize}" class="list-group-item">Next</a></li>
+	</ul><br><br>
+<%-- <td><a href="/country/detail/${e.code}?pageNum=${paging.pageNum}&pageSize=${paging.pageSize}">${e.name}</a></td> --%>
 </body>
 </html>

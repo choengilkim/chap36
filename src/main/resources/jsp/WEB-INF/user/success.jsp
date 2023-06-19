@@ -14,18 +14,22 @@
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <script src="/webjars/jquery/jquery.min.js"></script>
-
 <title>success.jsp</title>
+<style type="text/css">
+a{color:inherit;text-decoration:none}
+
+img {
+	width: 50px;
+}
+
+</style>
 </head>
 <body>
-<h1>회원가입 성공</h1>
+<h1>회원가입 성공!!</h1><br>
+<h2>이용해 주셔서 감사합니다.</h2>
 <hr>
-<a href="/">Home</a>
+<h1><a href="/">Home<img src="/img/click.jpg"></a></h1>
+<h1><a href="/user/login">로그인 하러가기<img src="/img/click.jpg"></a></h1>
 <hr>
-<c:choose>
-	<c:when test="${param.create ne null}"><h1>유저 추가 성공</h1></c:when>
-	<c:otherwise></c:otherwise>
-</c:choose>
-
 </body>
 </html>

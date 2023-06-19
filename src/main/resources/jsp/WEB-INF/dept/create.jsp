@@ -14,31 +14,38 @@
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <script src="/webjars/jquery/jquery.min.js"></script>
-
 <title>create.jsp</title>
+<style type="text/css">
+body {
+ background-color: #c8c8c8;
+}
+.form-control {
+	background-color: #dcdcdc;
+}
+</style>
 </head>
 <body>
 <h1>Dept Create 부서 추가</h1>
 <hr>
-<a href="/">Home</a>
+<button type="button" class="btn btn-dark"><a href="/" style="color: white">Home</a></button>
 <hr>
-<a href="/dept/list">/dept/list</a>
+<button type="button" class="btn btn-secondary"><a href="/dept/list" style="color: white">list</a></button>
 <hr>
 <section class="container">
  	<form action="/dept/create" method="post">  <!--form은 디폴트가 get방식이라 url에 정보가 담김-->
 		<div class="mb-3">
-			<label class="form-lable mb-2" for="deptno">deptno<span>*</span></label>
+			<label class="form-lable mb-2" for="deptno"><b>deptno</b><span>*</span></label>
 			<input class="form-control"    id="deptno" name="deptno" placeholder="부서번호를 입력하세요" value="${dept.deptno}"/>
 		</div>
 		<div class="mb-3">
-			<label class="form-lable mb-2" for="dname">dname<span>*</span></label>
+			<label class="form-lable mb-2" for="dname"><b>dname</b><span>*</span></label>
 			<input class="form-control"    id="dname" name="dname"   placeholder="부서이름을 입력하세요" value="${dept.dname}"/>
 		</div>
 		<div class="mb-3">
-			<label class="form-lable mb-2" for="loc">loc</label>
+			<label class="form-lable mb-2" for="loc"><b>loc</b></label>
 			<input class="form-control"    id="loc" name="loc" 		 placeholder="부서위치를 입력하세요" value="${dept.loc}"/>
 		</div>
-		<button type="submit" class="btn btn-primary">Submit</button>
+		<button type="submit" class="btn btn-secondary">Submit</button>
 	</form>
 </section>
 <hr>

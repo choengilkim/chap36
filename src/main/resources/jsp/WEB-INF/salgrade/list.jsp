@@ -18,7 +18,7 @@
 <title>list.jsp</title>
 </head>
 <body>
-<h1>Salgrade List <button type="button" class="btn btn-secondary">${list.size()}</button></h1>
+<h1>Salgrade List <button type="button" class="btn btn-danger">${list.size()}</button></h1>
 <br>
 <button type="button" class="btn btn-warning"><a href="/" style="color: black">Home</a></button>
 <hr>

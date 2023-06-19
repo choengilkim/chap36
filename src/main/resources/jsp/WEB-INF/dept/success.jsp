@@ -14,8 +14,12 @@
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <script src="/webjars/jquery/jquery.min.js"></script>
-
 <title>success.jsp</title>
+<style type="text/css">
+body {
+ background-color: #c8c8c8;
+}
+</style>
 </head>
 <body>
 <h1>Dept Successful 성공</h1>

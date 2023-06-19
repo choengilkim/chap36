@@ -14,25 +14,29 @@
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <script src="/webjars/jquery/jquery.min.js"></script>
-
 <title>detail.jsp</title>
+<style type="text/css">
+body {
+ background-color: #c8c8c8;
+}
+</style>
 </head>
 <body>
 <h1>Dept Detail 부서 정보</h1>
 <hr>
-<a href="/">Home</a>
+<button type="button" class="btn btn-dark"><a href="/" style="color: white">Home</a></button>
 <hr>
-<a href="/dept/list">/dept/list</a>
+<button type="button" class="btn btn-secondary"><a href="/dept/list" style="color: white">list</a></button>
 <hr>
 <section class="container">
-	<table class="table">
+
+	<table class="table table-bordered table-responsive">
 		<tbody>
 			<tr><th>deptno</th><td>${dept.deptno}</td></tr>
 			<tr><th>dname</th> <td>${dept.dname}</td></tr>
 			<tr><th>loc</th>   <td>${dept.loc}</td></tr>
 		</tbody>
 	</table>
-	<hr>
 	<sec:authorize access="hasRole('ADMIN')">
 	<menu class="btn-group">
 		<a href="/dept/create" class="btn btn-primary">추가</a>

@@ -175,8 +175,8 @@ a{color:inherit;text-decoration:none}
     <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">로그인</label>
     <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">회원가입</label>
     <div class="login-form">
-      <form action="/user/login" method="post">
       <div class="sign-in-htm">
+      <form action="/user/login" method="post">
         <div class="group">
           <label for="user" class="label">ID</label>
           <input id="user" name="username" type="text" class="input">
@@ -199,13 +199,13 @@ a{color:inherit;text-decoration:none}
         <div class="foot-lnk">
           <a href="#forgot">Forgot Password?</a>
         </div>
-      </div>
       </form>
+      </div>
       
       <div class="sign-up-htm">
       <form action="/user/register" method="post">
         <div class="group">
-          <label for="id" class="label">ID</label><span style="color: red">${errorMessage}</span>
+          <label for="id" class="label">ID</label>
           <input id="id" name="id" type="text" class="input" value="${user.id}" />
         </div>
         <div class="group">
@@ -219,14 +219,23 @@ a{color:inherit;text-decoration:none}
         <div class="group">
           <input type="submit" class="button" value="회원 가입">
         </div>
-        </form>
+        <c:if test="${binding.hasErrors()}">
+		<c:forEach var="g" items="${binding.globalErrors}">
+			<div>${g.code} ${g.defaultMessage}</div>	
+		</c:forEach>
+		<c:forEach var="f" items="${binding.fieldErrors}">
+			<div>${f.field} ${f.defaultMessage}</div>	
+		</c:forEach>
+		</c:if>
         <div class="hr"></div>
         <div class="foot-lnk">
         </div>
+        </form>
       </div>
     </div>
   </div>
 </div>
+
 <%-- <section class="container"> --%>
 <!-- 	<form action="/user/login" method="post"> -->
 <%-- 		<input class="form-control" name="username" value="${param.username}"/> --%>
@@ -242,6 +251,5 @@ a{color:inherit;text-decoration:none}
 <%-- <c:if test="${exception ne null}"> --%>
 <%-- 	<h1>${exception.message}</h1> --%>
 <%-- </c:if> --%>
-
 </body>
 </html>
