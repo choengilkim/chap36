@@ -20,9 +20,9 @@
 <body>
 <h1>Emp Create 직원 추가</h1>
 <hr>
-<a href="/">Home</a>
+<button type="button" class="btn btn-secondary"><a href="/" style="color: white">Home</a></button>
 <hr>
-<a href="/emp/list">/emp/list</a>
+<button type="button" class="btn btn-secondary"><a href="/emp/list" style="color: white">List</a></button>
 <hr>
 <section class="container">
  	<form action="/emp/create" method="post">  <!--form은 디폴트가 get방식이라 url에 정보가 담김-->
@@ -35,8 +35,10 @@
 			<input class="form-control"    id="ename" name="ename"   	 placeholder="직원이름을 입력하세요" value="${emp.ename}"/>
 		</div>
 		<div class="mb-3">
-			<label class="form-lable mb-2" for="gender">gender</label>
-			<input class="form-control"    id="gender" name="gender" 	 placeholder="성별을 입력하세요" value="${emp.gender}"/>
+			<label class="form-lable mb-2" for="gender">gender</label><br>
+			<label><input type="radio" name="gender" value="M" checked> M &nbsp;</label>
+			<label><input type="radio" name="gender" value="F" checked> F</label>
+<%-- 			<input class="form-control"    id="gender" name="gender" 	 placeholder="성별을 입력하세요" value="${emp.gender}"/> --%>
 		</div>
 		<div class="mb-3">
 			<label class="form-lable mb-2" for="job">job</label>
@@ -62,7 +64,7 @@
 			<label class="form-lable mb-2" for="deptno">deptno</label>
 			<input class="form-control"    id="deptno" name="deptno" 	 placeholder="부서번호를 입력하세요" value="${emp.deptno}"/>
 		</div>
-		<button type="submit" class="btn btn-primary">Submit</button>
+		<button type="submit" class="btn btn-primary">추가</button>
 	</form>
 </section>
 <hr>

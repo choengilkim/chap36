@@ -55,6 +55,16 @@ a.button {
 .btnPurple.btnPush:hover {
   box-shadow: 0px 0px 0px 0px #6D184B;
 }
+.btnBlue {
+	background: #699DD1;
+}
+.btnBlue.btnPush {
+  box-shadow: 0px 5px 0px 0px #191970;
+}
+.btnBlue.btnPush:hover { 
+box-shadow: 0px 0px 0px 0px #191970;
+}
+
 
 .six h1 {
     text-align: center;
@@ -73,7 +83,7 @@ a.button {
 .div1 {
 	display: flex;
 	align-items: center;
-	margin-left:auto; 
+	margin-left:15%; 
     margin-right:auto;
 	width: 50%;
 	font-size: 30px;
@@ -139,6 +149,9 @@ h5 {
 		    	<li><a class="dropdown-item" href="/language/page/1/10">language</a></li>
 		 	 </ul>
 		</div>		
+			<div class="btn-container">
+  				<a href="/board/page/1/10" class="button btnPush btnBlue" style="text-decoration: none;">게시판</a>
+			</div>
 	</div>
 	
 		

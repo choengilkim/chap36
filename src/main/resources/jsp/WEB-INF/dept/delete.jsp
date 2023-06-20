@@ -41,7 +41,7 @@
 			<input class="form-control"    id="loc" name="loc" 		 placeholder="부서위치를 입력하세요" value="${dept.loc}" disabled="disabled"/>
 			<input class="form-control"    id="loc" name="loc" 		 placeholder="부서위치를 입력하세요" value="${dept.loc}" type="hidden"/>
 		</div>
-		<button type="submit" class="btn btn-primary">Submit</button>
+		<button type="submit" class="btn btn-primary">삭제</button>
 	</form>
 </section>
 <hr>

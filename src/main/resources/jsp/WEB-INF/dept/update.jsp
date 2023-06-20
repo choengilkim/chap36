@@ -20,9 +20,9 @@
 <body>
 <h1>Dept Update 부서 수정</h1>
 <hr>
-<a href="/">Home</a>
+<button type="button" class="btn btn-dark"><a href="/" style="color: white">Home</a></button>
 <hr>
-<a href="/dept/list">/dept/list</a>
+<button type="button" class="btn btn-secondary"><a href="/dept/list" style="color: white">list</a></button>
 <hr>
 <section class="container">
  	<form action="/dept/update" method="post">  <!--form은 디폴트가 get방식이라 url에 정보가 담김-->
@@ -39,7 +39,7 @@
 			<label class="form-lable mb-2" for="loc">loc</label>
 			<input class="form-control"    id="loc" name="loc" 		 placeholder="부서위치를 입력하세요" value="${dept.loc}"/>
 		</div>
-		<button type="submit" class="btn btn-primary">Submit</button>
+		<button type="submit" class="btn btn-primary">수정</button>
 	</form>
 </section>
 <hr>

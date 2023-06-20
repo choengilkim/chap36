@@ -20,9 +20,9 @@
 <body>
 <h1>Salgrade Create 급여등급 추가</h1>
 <hr>
-<a href="/">Home</a>
+<button type="button" class="btn btn-primary"><a href="/" style="color: white">Home</a></button>
 <hr>
-<a href="/salgrade/list">/salgrade/list</a>
+<button type="button" class="btn btn-primary"><a href="/salgrade/list" style="color: white">List</a></button>
 <hr>
 <section class="container">
  	<form action="/salgrade/create" method="post">  <!--form은 디폴트가 get방식이라 url에 정보가 담김-->
@@ -38,7 +38,7 @@
 			<label class="form-lable mb-2" for="hisal">hisal</label>
 			<input class="form-control"    id="hisal" name="hisal" 		 placeholder="최고급여를 입력하세요" value="${salgrade.hisal}"/>
 		</div>
-		<button type="submit" class="btn btn-primary">Submit</button>
+		<button type="submit" class="btn btn-primary">추가</button>
 	</form>
 </section>
 <hr>

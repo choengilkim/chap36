@@ -16,8 +16,18 @@
 <script src="/webjars/jquery/jquery.min.js"></script>
 <title>detail.jsp</title>
 <style type="text/css">
-body {
- background-color: #c8c8c8;
+table {
+  border-collapse: separate;
+  width: 100%;
+  float: left;
+  margin: 0 0 2em;
+  border-top : 5px solid #4B0082 !important;
+}
+th {
+  padding: 0.35em 0 .35em;
+  font-weight: 400;
+  text-align: left;
+  font-size: 1.25em;
 }
 </style>
 </head>
@@ -29,8 +39,7 @@ body {
 <button type="button" class="btn btn-secondary"><a href="/dept/list" style="color: white">list</a></button>
 <hr>
 <section class="container">
-
-	<table class="table table-bordered table-responsive">
+	<table class="table table-responsive">
 		<tbody>
 			<tr><th>deptno</th><td>${dept.deptno}</td></tr>
 			<tr><th>dname</th> <td>${dept.dname}</td></tr>
@@ -39,17 +48,17 @@ body {
 	</table>
 	<sec:authorize access="hasRole('ADMIN')">
 	<menu class="btn-group">
-		<a href="/dept/create" class="btn btn-primary">추가</a>
-		<a href="/dept/update?deptno=${dept.deptno}" class="btn btn-secondary">수정</a>
-		<a href="/dept/delete?deptno=${dept.deptno}" class="btn btn-danger">삭제</a>
+		<a href="/dept/create" class="btn btn-outline-info">추가</a>
+		<a href="/dept/update?deptno=${dept.deptno}" class="btn btn-outline-warning">수정</a>
+		<a href="/dept/delete?deptno=${dept.deptno}" class="btn btn-outline-danger">삭제</a>
 	</menu>
 	</sec:authorize>
-	<hr>
-	<ul>
-		<li><a href="/dept/create">/dept/create</a></li>
-		<li><a href="/dept/update?deptno=${dept.deptno}">/dept/update?deptno=${dept.deptno}</a></li>
-		<li><a href="/dept/delete?deptno=${dept.deptno}">/dept/delete?deptno=${dept.deptno}</a></li>
-	</ul>
+<!-- 	<hr> -->
+<!-- 	<ul> -->
+<!-- 		<li><a href="/dept/create">/dept/create</a></li> -->
+<%-- 		<li><a href="/dept/update?deptno=${dept.deptno}">/dept/update?deptno=${dept.deptno}</a></li> --%>
+<%-- 		<li><a href="/dept/delete?deptno=${dept.deptno}">/dept/delete?deptno=${dept.deptno}</a></li> --%>
+<!-- 	</ul> -->
 </section>
 </body>
 </html>

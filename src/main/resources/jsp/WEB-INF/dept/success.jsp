@@ -16,17 +16,27 @@
 <script src="/webjars/jquery/jquery.min.js"></script>
 <title>success.jsp</title>
 <style type="text/css">
-body {
- background-color: #c8c8c8;
+table {
+  border-collapse: separate;
+  width: 100%;
+  float: left;
+  margin: 0 0 2em;
+  border-top : 5px solid #4B0082 !important;
+}
+th {
+  padding: 0.35em 0 .35em;
+  font-weight: 400;
+  text-align: left;
+  font-size: 1.25em;
 }
 </style>
 </head>
 <body>
 <h1>Dept Successful 성공</h1>
 <hr>
-<a href="/">Home</a>
+<button type="button" class="btn btn-dark"><a href="/" style="color: white">Home</a></button>
 <hr>
-<a href="/dept/list">/dept/list</a>
+<button type="button" class="btn btn-secondary"><a href="/dept/list" style="color: white">list</a></button>
 <hr>
 <c:choose>
 	<c:when test="${param.create ne null}"><h1>부서 추가 성공</h1></c:when>

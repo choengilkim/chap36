@@ -14,15 +14,37 @@
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <script src="/webjars/jquery/jquery.min.js"></script>
-
 <title>delete.jsp</title>
+<style type="text/css">
+table {
+  border-collapse: separate;
+  width: 100%;
+  float: left;
+  margin: 0 0 2em;
+  border-top : 5px solid #4B0082 !important;
+}
+th {
+  padding: 0.35em 0 .35em;
+  font-weight: 400;
+  text-align: left;
+  font-size: 1.25em;
+}
+button {
+    position: static;
+    top:50%;
+    background-color:#4B0082 !important;
+}
+a {
+  text-decoration-line: none;
+}
+</style>
 </head>
 <body>
-<h1>Country Delete 국가 수정</h1>
+<h1>Country Delete 국가 삭제</h1>
 <hr>
-<a href="/">Home</a>
+<button type="button" class="btn"><a href="/" style="color: white">Home</a></button>
 <hr>
-<a href="/country/list">/country/list</a>
+<button type="button" class="btn"><a href="/country/page/1/10" style="color: white">Page</a></button>
 <hr>
 <section class="container">
  	<form action="/country/delete" method="post">  <!--form은 디폴트가 get방식이라 url에 정보가 담김-->
@@ -101,7 +123,7 @@
 			<input class="form-control"    id="code2" name="code2" 		 			 value="${country.code2}" disabled="disabled"/>
 			<input class="form-control"    id="code2" name="code2" 		 			 value="${country.code2}" type="hidden"/>
 		</div>
-		<button type="submit" class="btn btn-primary">Submit</button>
+		<button type="submit" class="btn btn-primary">삭제</button>
 	</form>
 </section>
 <hr>

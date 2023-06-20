@@ -16,19 +16,28 @@
 <script src="/webjars/jquery/jquery.min.js"></script>
 <title>page.jsp</title>
 <style>
-	ul{
-	   list-style:none;
-	   margin-left: 360px;
-	   }
+ul{
+   list-style:none;
+   margin-left: 360px;
+}
+button {
+    position: static;
+    top:50%;
+    background-color:#4B0082 !important;
+}
+thead {
+	background-color:#4B0082 !important;
+	color: white;
+}
 </style>
 </head>
 <body>
 <h1>City Page <button type="button" class="btn btn-secondary">${paging.pageNum}</button></h1>
 <br>
-<button type="button" class="btn btn-dark"><a href="/" style="color: white">Home</a></button>
+<button type="button" class="btn btn-dark"><a href="/" style="color: white; text-decoration:none;">Home</a></button>
 <hr>
 <section class="container">
-<table class="table table-dark table-striped table-bordered table-hover">
+<table class="table table-striped table-bordered table-hover">
 		<thead>
 			<tr>
 				<th>id</th>

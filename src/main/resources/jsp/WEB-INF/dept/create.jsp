@@ -16,12 +16,7 @@
 <script src="/webjars/jquery/jquery.min.js"></script>
 <title>create.jsp</title>
 <style type="text/css">
-body {
- background-color: #c8c8c8;
-}
-.form-control {
-	background-color: #dcdcdc;
-}
+
 </style>
 </head>
 <body>
@@ -45,7 +40,7 @@ body {
 			<label class="form-lable mb-2" for="loc"><b>loc</b></label>
 			<input class="form-control"    id="loc" name="loc" 		 placeholder="부서위치를 입력하세요" value="${dept.loc}"/>
 		</div>
-		<button type="submit" class="btn btn-secondary">Submit</button>
+		<button type="submit" class="btn btn-secondary">추가</button>
 	</form>
 </section>
 <hr>

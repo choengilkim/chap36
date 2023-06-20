@@ -26,7 +26,7 @@ ul{
 </head>
 <body>
 <h1>Country Page <button type="button" class="btn btn-primary">${paging.pageNum}</button></h1><br>
-<button type="button" class="btn btn-info"><a href="/" style="color: white">Home</a></button>
+<button type="button" class="btn btn-info"><a href="/" style="color: white; text-decoration:none;">Home</a></button>
 <hr>
 <section class="container table-responsive">
 	<table class="table table-striped table-bordered table-hover">
@@ -51,7 +51,7 @@ ul{
 		</thead>
 		<tbody>
 		<c:forEach var="e" items="${list}">
-			<tr class="table-info">
+			<tr>
 				<td>${e.code}</td>
 				<td><b><a style="color:blue" href="/country/detail/${e.code}?pageNum=${paging.pageNum}&pageSize=${paging.pageSize}">${e.name}</a></b></td>
 				<td>${e.continent.symbol}</td>

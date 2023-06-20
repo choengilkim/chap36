@@ -20,9 +20,9 @@
 <body>
 <h1>Salgrade Delete 급여등급 삭제</h1>
 <hr>
-<a href="/">Home</a>
+<button type="button" class="btn btn-primary"><a href="/" style="color: white">Home</a></button>
 <hr>
-<a href="/salgrade/list">/salgrade/list</a>
+<button type="button" class="btn btn-primary"><a href="/salgrade/list" style="color: white">List</a></button>
 <hr>
 <section class="container">
  	<form action="/salgrade/delete" method="post">  <!--form은 디폴트가 get방식이라 url에 정보가 담김-->
@@ -41,7 +41,7 @@
 			<input class="form-control"    id="hisal" name="hisal" 	 value="${salgrade.hisal}" disabled="disabled"/>
 			<input class="form-control"    id="hisal" name="hisal"   value="${salgrade.hisal}" type="hidden"/>
 		</div>
-		<button type="submit" class="btn btn-primary">Submit</button>
+		<button type="submit" class="btn btn-primary">삭제</button>
 	</form>
 </section>
 <hr>

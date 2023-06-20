@@ -14,15 +14,37 @@
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <script src="/webjars/jquery/jquery.min.js"></script>
-
 <title>success.jsp</title>
+<style type="text/css">
+table {
+  border-collapse: separate;
+  width: 100%;
+  float: left;
+  margin: 0 0 2em;
+  border-top : 5px solid #4B0082 !important;
+}
+th {
+  padding: 0.35em 0 .35em;
+  font-weight: 400;
+  text-align: left;
+  font-size: 1.25em;
+}
+button {
+    position: static;
+    top:50%;
+    background-color:#4B0082 !important;
+}
+a {
+  text-decoration-line: none;
+}
+</style>
 </head>
 <body>
 <h1>City Successful 성공</h1>
 <hr>
-<a href="/">Home</a>
+<button type="button" class="btn"><a href="/" style="color: white">Home</a></button>
 <hr>
-<a href="/city/list">/city/list</a>
+<button type="button" class="btn"><a href="/city/page/1/10" style="color: white">Page</a></button>
 <hr>
 <c:choose>
 	<c:when test="${param.create ne null}"><h1>도시 추가 성공</h1></c:when>

@@ -14,15 +14,24 @@
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <script src="/webjars/jquery/jquery.min.js"></script>
-
 <title>create.jsp</title>
+<style type="text/css">
+button {
+    position: static;
+    top:50%;
+    background-color:#4B0082 !important;
+}
+a {
+  text-decoration-line: none;
+}
+</style>
 </head>
 <body>
 <h1>Language Create 국가언어 추가</h1>
 <hr>
-<a href="/">Home</a>
+<button type="button" class="btn"><a href="/" style="color: white">Home</a></button>
 <hr>
-<a href="/language/list">/language/list</a>
+<button type="button" class="btn"><a href="/language/page/1/10" style="color: white">Page</a></button>
 <hr>
 <section class="container">
  	<form action="/language/create" method="post">  <!--form은 디폴트가 get방식이라 url에 정보가 담김-->
@@ -35,14 +44,16 @@
 			<input class="form-control"    id="language" name="language"   			placeholder="언어를 입력하세요" value="${langage.language}"/>
 		</div>
 		<div class="mb-3">
-			<label class="form-lable mb-2" for="isOfficial">isOfficial</label>
-			<input class="form-control"    id="isOfficial" name="isOfficial" 		placeholder="공식적으로 사용되는 언어인지(참,거짓)" value="${langage.isOfficial}"/>
+			<label class="form-lable mb-2" for="isOfficial">isOfficial</label><br>
+			<label><input type="radio" name="isOfficial" value="T" checked> T &nbsp;</label>
+			<label><input type="radio" name="isOfficial" value="F" checked> F</label>
+<%-- 			<input class="form-control"    id="isOfficial" name="isOfficial" 		placeholder="공식적으로 사용되는 언어인지(참,거짓)" value="${langage.isOfficial}"/> --%>
 		</div>
 		<div class="mb-3">
 			<label class="form-lable mb-2" for="percentage">percentage</label>
 			<input class="form-control"    id="percentage" name="percentage" 		placeholder="백분율을 입력하세요" value="${langage.percentage}"/>
 		</div>
-		<button type="submit" class="btn btn-primary">Submit</button>
+		<button type="submit" class="btn btn-primary">추가</button>
 	</form>
 </section>
 <hr>

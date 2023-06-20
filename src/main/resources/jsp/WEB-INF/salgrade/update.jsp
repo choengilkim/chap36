@@ -14,15 +14,14 @@
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <script src="/webjars/jquery/jquery.min.js"></script>
-
 <title>update.jsp</title>
 </head>
 <body>
 <h1>Salgrade Update 급여등급 수정</h1>
 <hr>
-<a href="/">Home</a>
+<button type="button" class="btn btn-primary"><a href="/" style="color: white">Home</a></button>
 <hr>
-<a href="/salgrade/list">/salgrade/list</a>
+<button type="button" class="btn btn-primary"><a href="/salgrade/list" style="color: white">List</a></button>
 <hr>
 <section class="container">
  	<form action="/salgrade/update" method="post">  <!--form은 디폴트가 get방식이라 url에 정보가 담김-->
@@ -39,7 +38,7 @@
 			<label class="form-lable mb-2" for="hisal">hisal</label>
 			<input class="form-control"    id="hisal" name="hisal" 		 placeholder="최고급여 입력하세요" value="${salgrade.hisal}"/>
 		</div>
-		<button type="submit" class="btn btn-primary">Submit</button>
+		<button type="submit" class="btn btn-primary">수정</button>
 	</form>
 </section>
 <hr>

@@ -14,15 +14,37 @@
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <script src="/webjars/jquery/jquery.min.js"></script>
-
 <title>create.jsp</title>
+<style type="text/css">
+table {
+  border-collapse: separate;
+  width: 100%;
+  float: left;
+  margin: 0 0 2em;
+  border-top : 5px solid #4B0082 !important;
+}
+th {
+  padding: 0.35em 0 .35em;
+  font-weight: 400;
+  text-align: left;
+  font-size: 1.25em;
+}
+button {
+    position: static;
+    top:50%;
+    background-color:#4B0082 !important;
+}
+a {
+  text-decoration-line: none;
+}
+</style>
 </head>
 <body>
 <h1>Country Create 국가 추가</h1>
 <hr>
-<a href="/">Home</a>
+<button type="button" class="btn"><a href="/" style="color: white">Home</a></button>
 <hr>
-<a href="/country/list">/country/list</a>
+<button type="button" class="btn"><a href="/country/page/1/10" style="color: white">Page</a></button>
 <hr>
 <section class="container">
  	<form action="/country/create" method="post">  <!--form은 디폴트가 get방식이라 url에 정보가 담김-->
@@ -35,8 +57,15 @@
 			<input class="form-control"    id="name" name="name"   				 placeholder="국가이름을 입력하세요" value="${country.name}"/>
 		</div>
 		<div class="mb-3">
-			<label class="form-lable mb-2" for="continent">continent</label>
-			<input class="form-control"    id="continent" name="continent" 		 placeholder="대륙이름을 입력하세요" value="${country.continent}"/>
+			<label class="form-lable mb-2" for="continent">continent</label><br>
+			<label><input type="radio" name="continent" value="Asia" checked> Asia &nbsp;</label>
+			<label><input type="radio" name="continent" value="Europe" checked> Europe &nbsp;</label>
+			<label><input type="radio" name="continent" value="NorthAmerica" checked> NorthAmerica &nbsp;</label>
+			<label><input type="radio" name="continent" value="Africa" checked> Africa &nbsp;</label>
+			<label><input type="radio" name="continent" value="Oceania" checked> Oceania &nbsp;</label>
+			<label><input type="radio" name="continent" value="Antarctica" checked> Antarctica &nbsp;</label>
+			<label><input type="radio" name="continent" value="SouthAmerica" checked> SouthAmerica &nbsp;</label>
+<%-- 			<input class="form-control"    id="continent" name="continent" 		 placeholder="대륙이름을 입력하세요" value="${country.continent}"/> --%>
 		</div>
 		<div class="mb-3">
 			<label class="form-lable mb-2" for="region">region</label>
@@ -86,7 +115,7 @@
 			<label class="form-lable mb-2" for="code2">code2</label>
 			<input class="form-control"    id="code2" name="code2" 		 placeholder="코드(2자리)를 입력하세요" value="${country.code2}"/>
 		</div>
-		<button type="submit" class="btn btn-primary">Submit</button>
+		<button type="submit" class="btn btn-primary">추가</button>
 	</form>
 </section>
 <hr>

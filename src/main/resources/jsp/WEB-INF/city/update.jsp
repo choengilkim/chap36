@@ -14,15 +14,24 @@
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <script src="/webjars/jquery/jquery.min.js"></script>
-
 <title>update.jsp</title>
+<style type="text/css">
+button {
+    position: static;
+    top:50%;
+    background-color:#4B0082 !important;
+}
+a {
+  text-decoration-line: none;
+}
+</style>
 </head>
 <body>
 <h1>City Update 도시 수정</h1>
 <hr>
-<a href="/">Home</a>
+<button type="button" class="btn"><a href="/" style="color: white">Home</a></button>
 <hr>
-<a href="/city/list">/city/list</a>
+<button type="button" class="btn"><a href="/city/page/1/10" style="color: white">Page</a></button>
 <hr>
 <section class="container">
  	<form action="/city/update" method="post">  <!--form은 디폴트가 get방식이라 url에 정보가 담김-->
@@ -47,7 +56,7 @@
 			<label class="form-lable mb-2" for="population">population</label>
 			<input class="form-control"    id="population" name="population" 	 placeholder="인구수를 입력하세요" value="${city.population}"/>
 		</div>
-		<button type="submit" class="btn btn-primary">Submit</button>
+		<button type="submit" class="btn btn-primary">수정</button>
 	</form>
 </section>
 <hr>

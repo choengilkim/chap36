@@ -47,7 +47,7 @@
 <insert id="insertCountry">
 	insert into country
 	values (
-		#{code,				jdbcType=VARCHAR},
+		upper(#{code,		jdbcType=VARCHAR}),
 		#{name,  			jdbcType=VARCHAR},
 		#{continent,		jdbcType=VARCHAR},
 		#{region,			jdbcType=VARCHAR},

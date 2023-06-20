@@ -14,15 +14,29 @@
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <script src="/webjars/jquery/jquery.min.js"></script>
-
 <title>detail.jsp</title>
+<style type="text/css">
+table {
+  border-collapse: separate;
+  width: 100%;
+  float: left;
+  margin: 0 0 2em;
+  border-top : 5px solid #4B0082 !important;
+}
+th {
+  padding: 0.35em 0 .35em;
+  font-weight: 400;
+  text-align: left;
+  font-size: 1.25em;
+}
+</style>
 </head>
 <body>
 <h1>Emp Detail 직원 정보</h1>
 <hr>
-<a href="/">Home</a>
+<button type="button" class="btn btn-secondary"><a href="/" style="color: white">Home</a></button>
 <hr>
-<a href="/emp/list">/emp/list</a>
+<button type="button" class="btn btn-secondary"><a href="/emp/list" style="color: white">List</a></button>
 <hr>
 <section class="container">
 	<table class="table">
@@ -46,12 +60,12 @@
 		<a href="/emp/delete?empno=${emp.empno}" class="btn btn-danger">삭제</a>
 	</menu>
 	</sec:authorize>
-	<hr>
-	<ul>
-		<li><a href="/emp/create">/emp/create</a></li>
-		<li><a href="/emp/update?empno=${emp.empno}">/emp/update?empno=${emp.empno}</a></li>
-		<li><a href="/emp/delete?empno=${emp.empno}">/emp/delete?empno=${emp.empno}</a></li>
-	</ul>
+<!-- 	<hr> -->
+<!-- 	<ul> -->
+<!-- 		<li><a href="/emp/create">/emp/create</a></li> -->
+<%-- 		<li><a href="/emp/update?empno=${emp.empno}">/emp/update?empno=${emp.empno}</a></li> --%>
+<%-- 		<li><a href="/emp/delete?empno=${emp.empno}">/emp/delete?empno=${emp.empno}</a></li> --%>
+<!-- 	</ul> -->
 </section>
 </body>
 </html>

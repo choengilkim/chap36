@@ -25,7 +25,7 @@
 <body>
 <h1>Language Page <button type="button" class="btn btn-success">${paging.pageNum}</button></h1>
 <br>
-<button type="button" class="btn btn-success"><a href="/" style="color: white">Home</a></button>
+<button type="button" class="btn btn-success"><a href="/" style="color: white; text-decoration: none;">Home</a></button>
 <hr>
 <section class="container">
 	

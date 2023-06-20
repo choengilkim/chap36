@@ -14,15 +14,37 @@
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <script src="/webjars/jquery/jquery.min.js"></script>
-
 <title>detail.jsp</title>
+<style type="text/css">
+table {
+  border-collapse: separate;
+  width: 100%;
+  float: left;
+  margin: 0 0 2em;
+  border-top : 5px solid #4B0082 !important;
+}
+th {
+  padding: 0.35em 0 .35em;
+  font-weight: 400;
+  text-align: left;
+  font-size: 1.25em;
+}
+button {
+    position: static;
+    top:50%;
+    background-color:#4B0082 !important;
+}
+a {
+  text-decoration-line: none;
+}
+</style>
 </head>
 <body>
 <h1>language Detail 국가언어 정보</h1>
 <hr>
-<a href="/">Home</a>
+<button type="button" class="btn"><a href="/" style="color: white">Home</a></button>
 <hr>
-<a href="/language/list">/language/list</a>
+<button type="button" class="btn"><a href="/language/page/1/10" style="color: white">Page</a></button>
 <hr>
 <section class="container">
 	<table class="table">
@@ -41,12 +63,12 @@
 		<a href="/language/delete?countryCode=${language.countryCode}&language=${language.language}" class="btn btn-danger">삭제</a>
 	</menu>
 	</sec:authorize>
-	<hr>
-	<ul>
-		<li><a href="/language/create">/language/create</a></li>
-		<li><a href="/language/update?countryCode=${language.countryCode}&language=${language.language}">/language/update?countryCode=${language.countryCode}&language=${language.language}</a></li>
-		<li><a href="/language/delete?countryCode=${language.countryCode}&language=${language.language}">/language/delete?countryCode=${language.countryCode}&language=${language.language}</a></li>
-	</ul>
+<!-- 	<hr> -->
+<!-- 	<ul> -->
+<!-- 		<li><a href="/language/create">/language/create</a></li> -->
+<%-- 		<li><a href="/language/update?countryCode=${language.countryCode}&language=${language.language}">/language/update?countryCode=${language.countryCode}&language=${language.language}</a></li> --%>
+<%-- 		<li><a href="/language/delete?countryCode=${language.countryCode}&language=${language.language}">/language/delete?countryCode=${language.countryCode}&language=${language.language}</a></li> --%>
+<!-- 	</ul> -->
 </section>
 </body>
 </html>

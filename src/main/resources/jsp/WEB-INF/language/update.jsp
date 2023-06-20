@@ -14,15 +14,24 @@
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <script src="/webjars/jquery/jquery.min.js"></script>
-
 <title>update.jsp</title>
+<style type="text/css">
+button {
+    position: static;
+    top:50%;
+    background-color:#4B0082 !important;
+}
+a {
+  text-decoration-line: none;
+}
+</style>
 </head>
 <body>
 <h1> Language Update 국가언어 수정</h1>
 <hr>
-<a href="/">Home</a>
+<button type="button" class="btn"><a href="/" style="color: white">Home</a></button>
 <hr>
-<a href="/language/list">/language/list</a>
+<button type="button" class="btn"><a href="/language/page/1/10" style="color: white">Page</a></button>
 <hr>
 <section class="container">
  	<form action="/language/update" method="post">  <!--form은 디폴트가 get방식이라 url에 정보가 담김-->
@@ -37,14 +46,16 @@
 			<input class="form-control"    id="language" name="language"    	value="${language.language}" type="hidden"/>
 		</div>
 		<div class="mb-3">
-			<label class="form-lable mb-2" for="isOfficial">isOfficial</label>
-			<input class="form-control"    id="isOfficial" name="isOfficial" placeholder="공식적으로 사용되는 언어인지(참,거짓)"	value="${language.isOfficial}"/>
+			<label class="form-lable mb-2" for="isOfficial">isOfficial</label><br>
+			<label><input type="radio" name="isOfficial" value="T" ${language.isOfficial == 'T' ? 'checked' : ''}> T &nbsp;</label>
+			<label><input type="radio" name="isOfficial" value="F" ${language.isOfficial == 'F' ? 'checked' : ''}> F</label>
+<%-- 			<input class="form-control"    id="isOfficial" name="isOfficial" placeholder="공식적으로 사용되는 언어인지(참,거짓)"	value="${language.isOfficial}"/> --%>
 		</div>
 		<div class="mb-3">
 			<label class="form-lable mb-2" for="percentage">percentage</label>
 			<input class="form-control"    id="percentage" name="percentage" placeholder="백분율을 입력하세요"				value="${language.percentage}"/>
 		</div>
-		<button type="submit" class="btn btn-primary">Submit</button>
+		<button type="submit" class="btn btn-primary">수정</button>
 	</form>
 </section>
 <hr>

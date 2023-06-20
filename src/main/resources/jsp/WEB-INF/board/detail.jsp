@@ -29,36 +29,48 @@ th {
   text-align: left;
   font-size: 1.25em;
 }
+button {
+    position: static;
+    top:50%;
+    background-color:#4B0082 !important;
+}
+a {
+  text-decoration-line: none;
+}
 </style>
 </head>
 <body>
-<h1>Salgrade Detail 급여등급 정보</h1>
-<button type="button" class="btn btn-primary"><a href="/" style="color: white">Home</a></button>
+<h1>게시판 정보</h1>
+<button type="button" class="btn"><a href="/" style="color: white">Home</a></button>
 <hr>
-<button type="button" class="btn btn-primary"><a href="/salgrade/list" style="color: white">List</a></button>
+<button type="button" class="btn"><a href="/board/page/${param.pageNum}/${param.pageSize}" style="color: white">게시판 Page</a></button>
 <hr>
 <section class="container">
 	<table class="table">
 		<tbody>
-			<tr><th>grade</th><td>${salgrade.grade}</td></tr>
-			<tr><th>losal</th> <td>${salgrade.losal}</td></tr>
-			<tr><th>hisal</th>   <td>${salgrade.hisal}</td></tr>
+				<tr><th>게시물 번호</th> 		<td>${board.bno}</td></tr>
+				<tr><th>제목</th> 		<td>${board.title}</td></tr>
+				<tr><th>내용</th><td>${board.content}</td></tr>
+				<tr><th>작성자</th> 	<td>${board.writer}</td></tr>
+				<tr><th>날짜</th> <td>${board.regdate}</td></tr>
+				<tr><th>조회수</th> <td>${board.viewcnt}</td></tr>
 		</tbody>
 	</table>
 	<hr>
 	<sec:authorize access="hasRole('ADMIN')">
 	<menu class="btn-group">
-		<a href="/salgrade/create" class="btn btn-primary">추가</a>
-		<a href="/salgrade/update?grade=${salgrade.grade}" class="btn btn-secondary">수정</a>
-		<a href="/salgrade/delete?grade=${salgrade.grade}" class="btn btn-danger">삭제</a>
+		<a href="/board/create" 				 class="btn btn-primary">추가</a>
+		<a href="/board/update?bno=${board.bno}" class="btn btn-secondary">수정</a>
+		<a href="/board/delete?bno=${board.bno}" class="btn btn-danger">삭제</a>
 	</menu>
 	</sec:authorize>
 <!-- 	<hr> -->
 <!-- 	<ul> -->
-<!-- 		<li><a href="/salgrade/create">/salgrade/create</a></li> -->
-<%-- 		<li><a href="/salgrade/update?grade=${salgrade.grade}">/salgrade/update?grade=${salgrade.grade}</a></li> --%>
-<%-- 		<li><a href="/salgrade/delete?grade=${salgrade.grade}">/salgrade/delete?grade=${salgrade.grade}</a></li> --%>
+<!-- 		<li><a href="/city/create"				>/city/create</a></li> -->
+<%-- 		<li><a href="/city/update?id=${city.id}">/city/update?id=${city.id}</a></li> --%>
+<%-- 		<li><a href="/city/delete?id=${city.id}">/city/delete?id=${city.id}</a></li> --%>
 <!-- 	</ul> -->
 </section>
+
 </body>
 </html>

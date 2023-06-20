@@ -14,15 +14,24 @@
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <script src="/webjars/jquery/jquery.min.js"></script>
-
 <title>delete.jsp</title>
+<style type="text/css">
+button {
+    position: static;
+    top:50%;
+    background-color:#4B0082 !important;
+}
+a {
+  text-decoration-line: none;
+}
+</style>
 </head>
 <body>
 <h1> Language Delete 국가언어 삭제</h1>
 <hr>
-<a href="/">Home</a>
+<button type="button" class="btn"><a href="/" style="color: white">Home</a></button>
 <hr>
-<a href="/language/list">/language/list</a>
+<button type="button" class="btn"><a href="/language/page/1/10" style="color: white">Page</a></button>
 <hr>
 <section class="container">
  	<form action="/language/delete" method="post">  <!--form은 디폴트가 get방식이라 url에 정보가 담김-->
@@ -46,7 +55,7 @@
 			<input class="form-control"    id="percentage" name="percentage" 	value="${language.percentage}" disabled="disabled"/>
 			<input class="form-control"    id="percentage" name="percentage" 	value="${language.percentage}" type="hidden"/>
 		</div>
-		<button type="submit" class="btn btn-primary">Submit</button>
+		<button type="submit" class="btn btn-primary">삭제</button>
 	</form>
 </section>
 <hr>
