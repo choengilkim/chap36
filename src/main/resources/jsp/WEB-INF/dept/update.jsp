@@ -20,9 +20,9 @@
 <body>
 <h1>Dept Update 부서 수정</h1>
 <hr>
-<button type="button" class="btn btn-dark"><a href="/" style="color: white">Home</a></button>
+<button type="button" class="btn btn-dark"><a href="/" style="color: white; text-decoration: none;">Home</a></button>
 <hr>
-<button type="button" class="btn btn-secondary"><a href="/dept/list" style="color: white">list</a></button>
+<button type="button" class="btn btn-secondary"><a href="/dept/list" style="color: white; text-decoration: none;">list</a></button>
 <hr>
 <section class="container">
  	<form action="/dept/update" method="post">  <!--form은 디폴트가 get방식이라 url에 정보가 담김-->

@@ -19,5 +19,5 @@ public interface BoardMapper {
 	int insertBoard(Board board);
 	int updateBoard(Board board);
 	int delete(long bno);
-
+	int increaseViewCount(long bno);
 }

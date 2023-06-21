@@ -21,15 +21,22 @@ a{color:inherit;text-decoration:none}
 img {
 	width: 50px;
 }
-
+body {
+	text-align: center;
+	color:white;
+	background-color: #3C5087;
+}
 </style>
 </head>
 <body>
-<h1>회원가입 성공!!</h1><br>
-<h2>이용해 주셔서 감사합니다.</h2>
+<section class="container">
+<form action="/user/login" method="post">
+<h1>환영합니다!</h1><br>
+<h2>회원가입을 축하합니다.<br>당신의 아이디는 ${user.id} 입니다.</h2>
 <hr>
-<h1><a href="/">Home<img src="/img/click.jpg"></a></h1>
-<h1><a href="/user/login">로그인 하러가기<img src="/img/click.jpg"></a></h1>
-<hr>
+<h1><a href="/">Home<img src="/img/click.png"></a></h1>
+<h1><a href="/user/login">로그인 하러가기<img src="/img/click.png"></a></h1>
+</form>
+</section>
 </body>
 </html>

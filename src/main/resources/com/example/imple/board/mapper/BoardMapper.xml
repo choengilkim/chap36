@@ -30,18 +30,17 @@
 </select>
 
 <insert id="insertBoard">
-	insert into board
-	values (
-		board_bno_seq.nextval,
-		#{title,			jdbcType=VARCHAR},
-		#{content,  		jdbcType=VARCHAR},
-		#{writer,			jdbcType=VARCHAR},
-		#{regdate,			jdbcType=DATE}
-		#{viewcnt,			jdbcType=BIGINT}
-	)
- 	<selectKey keyProperty="bno" resultType="long" order="AFTER"> <!--insert하고 bno값을 selectkey로 확인할수있게 만들어줌 -->
-		select board_bno_seq.currval from dual
+ 	<selectKey keyProperty="bno" resultType="long" order="BEFORE"> <!--insert하고 bno값을 selectkey로 확인할수있게 만들어줌 -->
+		select coalesce(max(bno), 0) + 1 from board
 	</selectKey>
+	insert into board (bno, title, writer, content)
+	values (
+		#{bno, 				jdbcType=BIGINT},
+<!-- 		board_bno_seq.nextval, -->
+		#{title,			jdbcType=VARCHAR},
+		#{writer,			jdbcType=VARCHAR},
+		#{content,  		jdbcType=VARCHAR}
+	)
 </insert>
 
 <update id="updateBoard">
@@ -49,9 +48,14 @@
 	   set title	=	#{title,	jdbcType=VARCHAR},
 	   	   content  =	#{content,  jdbcType=VARCHAR},
 	   	   writer	=	#{writer,	jdbcType=VARCHAR},
-	   	   regdate	=	#{regdate,	jdbcType=DATE},
-	   	   viewcnt	=	#{viewcnt,	jdbcType=BIGINT}
+	   	   regdate  = 	 SYSDATE
      where bno			= 	#{bno}
+</update>
+
+<update id="increaseViewCount">
+    update board
+    set viewcnt = viewcnt + 1
+    where bno = #{bno}
 </update>
 
 <delete id="delete">

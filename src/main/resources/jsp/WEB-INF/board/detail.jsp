@@ -43,26 +43,23 @@ a {
 <h1>게시판 정보</h1>
 <button type="button" class="btn"><a href="/" style="color: white">Home</a></button>
 <hr>
-<button type="button" class="btn"><a href="/board/page/${param.pageNum}/${param.pageSize}" style="color: white">게시판 Page</a></button>
+<button type="button" class="btn"><a href="/board/page/${param.pageNum}/${param.pageSize}" style="color: white">게시판 목록</a></button>
 <hr>
 <section class="container">
 	<table class="table">
 		<tbody>
 				<tr><th>게시물 번호</th> 		<td>${board.bno}</td></tr>
-				<tr><th>제목</th> 		<td>${board.title}</td></tr>
-				<tr><th>내용</th><td>${board.content}</td></tr>
-				<tr><th>작성자</th> 	<td>${board.writer}</td></tr>
-				<tr><th>날짜</th> <td>${board.regdate}</td></tr>
-				<tr><th>조회수</th> <td>${board.viewcnt}</td></tr>
+				<tr><th>제목</th> 			<td>${board.title}</td></tr>
+				<tr><th>내용</th>				<td>${board.content}</td></tr>
+				<tr><th>작성자</th> 			<td>${board.writer}</td></tr>
+				<tr><th>날짜</th> 			<td>${board.regdate}</td></tr>
+				<tr><th>조회수</th> 			<td>${board.viewcnt}</td></tr>
 		</tbody>
 	</table>
 	<hr>
-	<sec:authorize access="hasRole('ADMIN')">
-	<menu class="btn-group">
-		<a href="/board/create" 				 class="btn btn-primary">추가</a>
-		<a href="/board/update?bno=${board.bno}" class="btn btn-secondary">수정</a>
-		<a href="/board/delete?bno=${board.bno}" class="btn btn-danger">삭제</a>
-	</menu>
+	<sec:authorize access="hasAnyRole('ADMIN', 'USER')">
+		<a href="/board/update?bno=${board.bno}" class="btn btn-outline-dark">수정</a>
+		<a href="/board/delete?bno=${board.bno}" class="btn btn-outline-dark">삭제</a>
 	</sec:authorize>
 <!-- 	<hr> -->
 <!-- 	<ul> -->

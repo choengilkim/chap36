@@ -104,7 +104,12 @@ h3 {
 }
 h5 {
 	float: right;
-	margin-right: 70px;
+	margin-right: 80px;
+	margin-top: -25px;
+}
+.userimg {
+	width: 50px;
+	height: 50px;
 }
 </style>
 </head>
@@ -116,7 +121,8 @@ h5 {
 </div>
 <h5>  
 <sec:authorize access="isAuthenticated()">
-<sec:authentication property="name"/>님 환영합니다! <a href="/user/logout" style="text-decoration: none;"> &nbsp로그아웃</a>
+<img src="/img/user.png" class="userimg"><br>
+<sec:authentication property="name"/>님 <button><a href="/user/logout" style="text-decoration: none; color: black">로그아웃</a></button>
 </sec:authorize>
 </h5><br>
 <h5>

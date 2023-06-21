@@ -41,24 +41,23 @@ a {
 </head>
 <body>
 <c:choose>
-	<c:when test="${param.create ne null}"><h1>국가언어 추가 성공</h1></c:when>
-	<c:when test="${param.update ne null}"><h1>국가언어 수정 성공</h1></c:when>
-	<c:when test="${param.delete ne null}"><h1>국가언어 삭제 성공</h1></c:when>
+	<c:when test="${param.create ne null}"><h1>게시판 작성 성공</h1></c:when>
+	<c:when test="${param.update ne null}"><h1>게시판 수정 성공</h1></c:when>
+	<c:when test="${param.delete ne null}"><h1>게시판 삭제 성공</h1></c:when>
 	<c:otherwise></c:otherwise>
 </c:choose>
 <hr>
 <button type="button" class="btn"><a href="/" style="color: white">Home</a></button>
 <hr>
-<button type="button" class="btn"><a href="/language/page/1/10" style="color: white">Page</a></button>
+<button type="button" class="btn"><a href="/board/page/1/10" style="color: white">게시판 목록</a></button>
 <hr>
-
 <section class="container">
 	<table class="table">
 		<tbody>
-				<tr><th>countryCode</th> 		<td>${language.countryCode}</td></tr>
-				<tr><th>language</th> 			<td>${language.language}</td></tr>
-				<tr><th>isOfficial</th>			<td>${language.isOfficial}</td></tr>
-				<tr><th>percentage</th> 		<td>${language.percentage}</td></tr>
+				<tr><th>게시물 번호</th> <td>${board.bno}</td></tr>
+				<tr><th>제목</th> 	  <td>${board.title}</td></tr>
+				<tr><th>작성자</th> 	  <td>${board.writer}</td></tr>
+				<tr><th>내용</th> 	  <td>${board.content}</td></tr>
 		</tbody>
 	</table>
 	<hr>

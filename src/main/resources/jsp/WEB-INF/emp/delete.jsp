@@ -20,9 +20,9 @@
 <body>
 <h1>Emp Delete 직원 삭제</h1>
 <hr>
-<a href="/">Home</a>
+<button type="button" class="btn btn-secondary"><a href="/" style="color: white; text-decoration: none;">Home</a></button>
 <hr>
-<a href="/emp/list">/emp/list</a>
+<button type="button" class="btn btn-secondary"><a href="/emp/list" style="color: white; text-decoration: none;">List</a></button>
 <hr>
 <section class="container">
  	<form action="/emp/delete" method="post">  <!--form은 디폴트가 get방식이라 url에 정보가 담김-->

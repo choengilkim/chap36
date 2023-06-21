@@ -24,6 +24,9 @@ public class BoardDetailController implements DetailController<Integer> {
 		log.debug("key : {}", key);
 		var board = mapper.selectByBno(key);
 		model.addAttribute("board", board);
+		
+		mapper.increaseViewCount(key);
+		
 		return "board/detail";
 	}
 	

@@ -16,31 +16,41 @@
 <script src="/webjars/jquery/jquery.min.js"></script>
 <title>create.jsp</title>
 <style type="text/css">
-
+button {
+    position: static;
+    top:50%;
+    background-color:#4B0082 !important;
+}
+a {
+  text-decoration-line: none;
+}
+#content {
+  height: 200px;
+ }
 </style>
 </head>
 <body>
-<h1>Dept Create 부서 추가</h1>
+<h1>게시물 쓰기</h1>
 <hr>
-<button type="button" class="btn btn-dark"><a href="/" style="color: white; text-decoration: none;">Home</a></button>
+<button type="button" class="btn"><a href="/" style="color: white">Home</a></button>
 <hr>
-<button type="button" class="btn btn-secondary"><a href="/dept/list" style="color: white; text-decoration: none;">list</a></button>
+<button type="button" class="btn"><a href="/board/page/1/10" style="color: white">게시판 목록</a></button>
 <hr>
 <section class="container">
- 	<form action="/dept/create" method="post">  <!--form은 디폴트가 get방식이라 url에 정보가 담김-->
+ 	<form action="/board/create" method="post">  <!--form은 디폴트가 get방식이라 url에 정보가 담김-->
 		<div class="mb-3">
-			<label class="form-lable mb-2" for="deptno"><b>deptno</b><span>*</span></label>
-			<input class="form-control"    id="deptno" name="deptno" placeholder="부서번호를 입력하세요" value="${dept.deptno}"/>
+			<label class="form-lable mb-2" for="title"><b>제목</b><span>*</span></label>
+			<input class="form-control"    id="title" name="title" placeholder="제목을 입력하세요(필수)" value="${board.title}"/>
 		</div>
 		<div class="mb-3">
-			<label class="form-lable mb-2" for="dname"><b>dname</b><span>*</span></label>
-			<input class="form-control"    id="dname" name="dname"   placeholder="부서이름을 입력하세요" value="${dept.dname}"/>
+			<label class="form-lable mb-2" for="writer"><b>작성자</b><span>*</span></label>
+			<input class="form-control"    id="writer" name="writer"   placeholder="작성자의 닉네임을 입력하세요(필수)" value="${board.writer}"/>
 		</div>
 		<div class="mb-3">
-			<label class="form-lable mb-2" for="loc"><b>loc</b></label>
-			<input class="form-control"    id="loc" name="loc" 		 placeholder="부서위치를 입력하세요" value="${dept.loc}"/>
+			<label class="form-lable mb-2" for="content"><b>내용</b></label>
+			<textarea class="form-control"    id="content" name="content" 	placeholder="내용을 입력하세요" value="${board.content}"></textarea>
 		</div>
-		<button type="submit" class="btn btn-secondary">추가</button>
+		<button type="submit" class="btn" style="color: white">작성완료</button>
 	</form>
 </section>
 <hr>

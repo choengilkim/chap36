@@ -20,9 +20,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class BoardDTO implements Modelable<Board>{
-	@NotNull
-	@Range(min = 1, max = 99999999999L)
-    Long 		bno;
+	
+	@Range(min = 1)
+	Long 		bno;
 	
 	@NotBlank
 	@Length(max = 200)
@@ -39,8 +39,7 @@ public class BoardDTO implements Modelable<Board>{
     LocalDate 	regdate;
 	
 	@NotNull
-	@Range(min = 1, max = 99999999999L)
-	Long		viewcnt;
+	Integer		viewcnt = 0;
 
 	@Override
 	public Board getModel() {

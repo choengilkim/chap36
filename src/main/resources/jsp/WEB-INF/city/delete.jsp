@@ -27,7 +27,7 @@ a {
 </style>
 </head>
 <body>
-<h1>City Delete 도시 수정</h1>
+<h1>City Delete 도시 삭제</h1>
 <hr>
 <button type="button" class="btn"><a href="/" style="color: white">Home</a></button>
 <hr>
@@ -60,7 +60,7 @@ a {
 			<input class="form-control"    id="population" name="population" 	 value="${city.population}" disabled="disabled"/>
 			<input class="form-control"    id="population" name="population" 	 value="${city.population}" type="hidden"/>
 		</div>
-		<button type="submit" class="btn btn-primary">Submit</button>
+		<button type="submit" class="btn btn-primary">삭제</button>
 	</form>
 </section>
 <hr>

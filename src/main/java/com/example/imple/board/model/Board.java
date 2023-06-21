@@ -13,10 +13,10 @@ import lombok.NonNull;
 @NoArgsConstructor
 @Builder
 public class Board {
-	@NonNull Long 		bno;
+			 Long  		bno;
 	@NonNull String 	title;
 			 String 	content;
 	@NonNull String 	writer;
 			 LocalDate 	regdate;
-			 Long		viewcnt;
+			 Integer	viewcnt;
 }

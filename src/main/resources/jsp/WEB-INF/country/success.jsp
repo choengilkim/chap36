@@ -40,20 +40,18 @@ a {
 </style>
 </head>
 <body>
-<h1>Country Successful 성공</h1>
-<hr>
-<button type="button" class="btn"><a href="/" style="color: white">Home</a></button>
-<hr>
-<button type="button" class="btn"><a href="/country/page/1/10" style="color: white">Page</a></button>
-<hr>
 <c:choose>
 	<c:when test="${param.create ne null}"><h1>국가 추가 성공</h1></c:when>
 	<c:when test="${param.update ne null}"><h1>국가 수정 성공</h1></c:when>
 	<c:when test="${param.delete ne null}"><h1>국가 삭제 성공</h1></c:when>
 	<c:otherwise></c:otherwise>
 </c:choose>
-
 <hr>
+<button type="button" class="btn"><a href="/" style="color: white">Home</a></button>
+<hr>
+<button type="button" class="btn"><a href="/country/page/1/10" style="color: white">Page</a></button>
+<hr>
+
 <section class="container">
 	<table class="table">
 		<tbody>

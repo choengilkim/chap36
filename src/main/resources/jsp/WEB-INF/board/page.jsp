@@ -16,10 +16,6 @@
 <script src="/webjars/jquery/jquery.min.js"></script>
 <title>page.jsp</title>
 <style>
-ul{
-   list-style:none;
-   margin-left: 360px;
-}
 button {
     position: static;
     top:50%;
@@ -29,17 +25,31 @@ thead {
 	background-color:#4B0082 !important;
 	color: white;
 }
+.button {
+	position: static;
+	margin-left: 1230px;
+}
+
+ul{
+   list-style:none;
+   margin-left: auto;
+   margin-right: auto;
+}
+
 </style>
 </head>
 <body>
-<h2>게시판</h2>
+<h1>게시판</h1>
+<hr>
+<button type="button" class="btn"><a href="/" style="color: white; text-decoration: none;">Home</a></button>
+<hr>
 <section class="container">
 <table class="table table-striped table-bordered table-hover">
 		<thead align="center">
 			<tr>
 				<th>번호</th>
 				<th>제목</th>
-				<th>이름</th>
+				<th>작성자</th>
 				<th>날짜</th>
 				<th>조회수</th>
 			</tr>
@@ -56,6 +66,21 @@ thead {
 		</c:forEach>
 		</tbody>
 	</table>
+	<ul class="list-group list-group-horizontal">
+		<li><a href="/board/page/${paging.navigateFirstPage-1}/${paging.pageSize}" class="list-group-item">Previous</a></li>
+	<c:forEach var="n" items="${paging.navigatepageNums}">
+		<c:choose>
+			<c:when test="${n eq paging.pageNum}">
+				<li class="list-group-item active"><a href="/board/page/${n}/${paging.pageSize}" class="text-danger">${n}</a></li>
+			</c:when>
+			<c:when test="${n ne paging.pageNum}">
+				<li class="list-group-item 		 "><a href="/board/page/${n}/${paging.pageSize}">${n}</a></li>
+			</c:when>
+		</c:choose>
+	</c:forEach>
+		<li><a href="/board/page/${paging.navigateLastPage+1}/${paging.pageSize}" class="list-group-item">Next</a></li>
+	</ul>
+<button type="button" class="button"><a href="/board/create" style="color: white; text-decoration: none;">글작성</a></button>
 </section>
 <!-- <table border="1" width="600px"> -->
 <!--     <tr> -->

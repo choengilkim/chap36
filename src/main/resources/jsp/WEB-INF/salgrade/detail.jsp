@@ -33,9 +33,9 @@ th {
 </head>
 <body>
 <h1>Salgrade Detail 급여등급 정보</h1>
-<button type="button" class="btn btn-primary"><a href="/" style="color: white">Home</a></button>
+<button type="button" class="btn btn-primary"><a href="/" style="color: white; text-decoration: none;">Home</a></button>
 <hr>
-<button type="button" class="btn btn-primary"><a href="/salgrade/list" style="color: white">List</a></button>
+<button type="button" class="btn btn-primary"><a href="/salgrade/list" style="color: white; text-decoration: none;">List</a></button>
 <hr>
 <section class="container">
 	<table class="table">

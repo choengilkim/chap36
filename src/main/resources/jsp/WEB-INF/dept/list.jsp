@@ -20,7 +20,7 @@
 <body>
 <h1>Dept List <button type="button" class="btn btn-secondary">${list.size()}</button></h1>
 <hr>
-<button type="button" class="btn btn-dark"><a href="/" style="color: white">Home</a></button>
+<button type="button" class="btn btn-dark"><a href="/" style="color: white;text-decoration: none;">Home</a></button>
 <hr>
 <section class="container">
 	<table class="table table-striped table-bordered table-hover">

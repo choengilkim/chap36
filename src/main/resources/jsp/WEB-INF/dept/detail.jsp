@@ -34,9 +34,9 @@ th {
 <body>
 <h1>Dept Detail 부서 정보</h1>
 <hr>
-<button type="button" class="btn btn-dark"><a href="/" style="color: white">Home</a></button>
+<button type="button" class="btn btn-dark"><a href="/" style="color: white; text-decoration: none;">Home</a></button>
 <hr>
-<button type="button" class="btn btn-secondary"><a href="/dept/list" style="color: white">list</a></button>
+<button type="button" class="btn btn-secondary"><a href="/dept/list" style="color: white; text-decoration: none;">list</a></button>
 <hr>
 <section class="container">
 	<table class="table table-responsive">

@@ -32,20 +32,18 @@ th {
 </style>
 </head>
 <body>
-<h1>Salgrade Successful 성공</h1>
-<hr>
-<button type="button" class="btn btn-primary"><a href="/" style="color: white">Home</a></button>
-<hr>
-<button type="button" class="btn btn-primary"><a href="/salgrade/list" style="color: white">List</a></button>
-<hr>
 <c:choose>
 	<c:when test="${param.create ne null}"><h1>급여등급 추가 성공</h1></c:when>
 	<c:when test="${param.update ne null}"><h1>급여등급 수정 성공</h1></c:when>
 	<c:when test="${param.delete ne null}"><h1>급여등급 삭제 성공</h1></c:when>
 	<c:otherwise></c:otherwise>
 </c:choose>
-
 <hr>
+<button type="button" class="btn btn-primary"><a href="/" style="color: white; text-decoration: none;">Home</a></button>
+<hr>
+<button type="button" class="btn btn-primary"><a href="/salgrade/list" style="color: white; text-decoration: none;">List</a></button>
+<hr>
+
 <section class="container">
 	<table class="table">
 		<tbody>

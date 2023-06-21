@@ -20,7 +20,7 @@
 <body>
 <h1>Salgrade List <button type="button" class="btn btn-danger">${list.size()}</button></h1>
 <br>
-<button type="button" class="btn btn-warning"><a href="/" style="color: black">Home</a></button>
+<button type="button" class="btn btn-warning"><a href="/" style="color: black; text-decoration: none;">Home</a></button>
 <hr>
 <section class="container">
 	<table class="table table-warning table-striped table-bordered table-hover">

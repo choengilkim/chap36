@@ -34,9 +34,9 @@ th {
 <body>
 <h1>Emp Detail 직원 정보</h1>
 <hr>
-<button type="button" class="btn btn-secondary"><a href="/" style="color: white">Home</a></button>
+<button type="button" class="btn btn-secondary"><a href="/" style="color: white; text-decoration: none;">Home</a></button>
 <hr>
-<button type="button" class="btn btn-secondary"><a href="/emp/list" style="color: white">List</a></button>
+<button type="button" class="btn btn-secondary"><a href="/emp/list" style="color: white; text-decoration: none;">List</a></button>
 <hr>
 <section class="container">
 	<table class="table">

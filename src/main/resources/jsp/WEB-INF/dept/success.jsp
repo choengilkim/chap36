@@ -32,20 +32,18 @@ th {
 </style>
 </head>
 <body>
-<h1>Dept Successful 성공</h1>
-<hr>
-<button type="button" class="btn btn-dark"><a href="/" style="color: white">Home</a></button>
-<hr>
-<button type="button" class="btn btn-secondary"><a href="/dept/list" style="color: white">list</a></button>
-<hr>
 <c:choose>
 	<c:when test="${param.create ne null}"><h1>부서 추가 성공</h1></c:when>
 	<c:when test="${param.update ne null}"><h1>부서 수정 성공</h1></c:when>
 	<c:when test="${param.delete ne null}"><h1>부서 삭제 성공</h1></c:when>
 	<c:otherwise></c:otherwise>
 </c:choose>
-
 <hr>
+<button type="button" class="btn btn-dark"><a href="/" style="color: white; text-decoration: none;">Home</a></button>
+<hr>
+<button type="button" class="btn btn-secondary"><a href="/dept/list" style="color: white; text-decoration: none;">list</a></button>
+<hr>
+
 <section class="container">
 	<table class="table">
 		<tbody>
