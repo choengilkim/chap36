@@ -196,9 +196,6 @@ a{color:inherit;text-decoration:none}
  		<h5>${exception.message}</h5> 
  		</c:if>
         <div class="hr"></div>
-        <div class="foot-lnk">
-          <a href="#forgot">Forgot Password?</a>
-        </div>
       </form>
       </div>
       
