@@ -12,8 +12,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel = "icon" href="favicon.png">
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
-<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <script src="/webjars/jquery/jquery.min.js"></script>
+<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <title>login.jsp</title>
 <style type="text/css">
 body{
@@ -25,7 +26,7 @@ body{
 *,:after,:before{box-sizing:border-box}
 .clearfix:after,.clearfix:before{content:'';display:table}
 .clearfix:after{clear:both;display:block}
-a{color:inherit;text-decoration:none}
+a{color:inherit;text-decoration:none;}
 
 .login-wrap{
   width:100%;
@@ -165,7 +166,85 @@ a{color:inherit;text-decoration:none}
 .foot-lnk{
   text-align:center;
 }
+.checkId {
+	border:none;
+	border-radius: 25px;
+	background:rgba(255,255,255,.1);
+	margin-left: 10px;
+	color: white;
+}
 </style>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	  $('#check-duplicate').click(function() {
+	    var id = $('#id').val(); // Get the value of the ID input field
+	    
+	    // Make an AJAX request to check for ID duplication
+	    $.ajax({
+	      url: '/user/check-duplicate', // URL to the server-side script that performs the duplication check
+	      type: 'POST',
+	      data: { id: id }, // Send the ID value as data
+	      success: function(response) {
+	        // Process the response from the server
+	        if (response.duplicated) {
+	          alert('중복된 아이디 입니다 다른아이디를 입력하세요.');
+	        } else {
+	          alert('사용가능한 아이디입니다.');
+	        }
+	      },
+	      error: function(error) {
+	        console.log(error);
+	      }
+	    });
+	  });
+
+	  // Function to refresh the sign-up form
+	  function refreshSignUpForm() {
+	    $.ajax({
+	      url: '/user/register', // URL to the server-side script that generates the sign-up form
+	      type: 'POST',
+	      success: function(response) {
+	        // Replace the existing form with the updated one
+	        $('.sign-up-htm').html(response);
+	      },
+	      error: function(error) {
+	        console.log(error);
+	      }
+	    });
+	  }
+
+	  // Event handler for the form submission
+	  $('form').submit(function(event) {
+	    event.preventDefault(); // Prevent the default form submission
+
+	    // Perform form validation and data processing here
+
+	    // Make the AJAX request to refresh the form
+	    $.ajax({
+	      url: '/user/register', // URL to the server-side script that handles form submission
+	      type: 'POST',
+	      data: $(this).serialize(), // Serialize the form data
+	      success: function(response) {
+	        // Check if the response contains form validation errors
+	        var hasErrors = $(response).find('.error').length > 0;
+
+	        if (hasErrors) {
+	          // Replace the existing form with the updated one
+	          $('.sign-up-htm').html(response);
+	        } else {
+	          // Handle successful form submission
+	          // (e.g., display a success message, redirect to a new page)
+	        }
+	      },
+	      error: function(error) {
+	        console.log(error);
+	      }
+	    });
+	  });
+	});
+</script>
+
 </head>
 <body>
 <h1><a href="/">Home</a></h1>
@@ -196,15 +275,19 @@ a{color:inherit;text-decoration:none}
  		<h5>${exception.message}</h5> 
  		</c:if>
         <div class="hr"></div>
+        <div class="foot-lnk">
+          <a href="#forgot">Forgot Password?</a>
+        </div>
       </form>
       </div>
       
       <div class="sign-up-htm">
       <form action="/user/register" method="post">
         <div class="group">
-          <label for="id" class="label">ID</label>
-          <input id="id" name="id" type="text" class="input" value="${user.id}" />
-        </div>
+		  <label for="id" class="label">ID</label><br>
+		  <input id="id" name="id" type="text" class="input" value="${user.id}" />
+		  <button type="button" id="check-duplicate">Check Duplication</button>
+		</div>
         <div class="group">
           <label for="password" class="label">Password</label>
           <input id="password" name="password" type="password" class="input" data-type="password" value="${user.password}" />
@@ -216,23 +299,20 @@ a{color:inherit;text-decoration:none}
         <div class="group">
           <input type="submit" class="button" value="회원 가입">
         </div>
-        <c:if test="${binding.hasErrors()}">
-		<c:forEach var="g" items="${binding.globalErrors}">
-			<div>${g.code} ${g.defaultMessage}</div>	
-		</c:forEach>
-		<c:forEach var="f" items="${binding.fieldErrors}">
-			<div>${f.field} ${f.defaultMessage}</div>	
-		</c:forEach>
-		</c:if>
+<%--         <c:if test="${binding.hasErrors()}"> --%>
+<%-- 		<c:forEach var="g" items="${binding.globalErrors}"> --%>
+<%-- 			<div>${g.code} ${g.defaultMessage}</div>	 --%>
+<%-- 		</c:forEach> --%>
+<%-- 		<c:forEach var="f" items="${binding.fieldErrors}"> --%>
+<%-- 			<div>${f.field} ${f.defaultMessage}</div>	 --%>
+<%-- 		</c:forEach> --%>
+<%-- 		</c:if> --%>
         <div class="hr"></div>
-        <div class="foot-lnk">
-        </div>
         </form>
       </div>
     </div>
   </div>
 </div>
-
 <%-- <section class="container"> --%>
 <!-- 	<form action="/user/login" method="post"> -->
 <%-- 		<input class="form-control" name="username" value="${param.username}"/> --%>

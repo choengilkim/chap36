@@ -28,7 +28,7 @@ public class UserCreateController implements CreateController<UserDTO> {
 	
 	@Autowired
 	private PasswordEncoder passwordEncoder;
-
+	
 	@Override
 	public void create(Model model, HttpServletRequest request) {
 		log.info("GET create()...");

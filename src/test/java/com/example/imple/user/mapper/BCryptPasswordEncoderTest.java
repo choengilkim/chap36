@@ -14,11 +14,12 @@ public class BCryptPasswordEncoderTest {
 		var encodeStr = encoder.encode("1234");
 		System.out.println(encodeStr);
 	}
-	//$2a$10$kTZfs8vCa.FXE4fJ3vLYXu3KWcIvEK2Sr0jOOqI0rKZdyMpmOuzMK
-	//$2a$10$7FyLG5BZdSgFThnpGag1Z.xZl8MQymP.P8QfAZIcO3Eu3Arulf.Re
 	
 	//$2a$10$S3.PCaUIwtiJtiQK9TxCTOzsGBHjrC.XPXzlSjTFGuQDgKXw5a5J.
 	//$2a$10$6HKXUzZZvzmLqHtm8EKFxek.XpzqLNoZHbN4lcIoGFhqDk5.SKjI2
+	
+	//$2a$10$7qdmSxR.MVgouKe0JTyeqON1xBLpN0PlQk2RlnsBePdoBuyfYHWqG
+	//$2a$10$ZmcAimJXXvGhgeJpiZrdT.IgztCfj9.DuN6jE27MKbU7iyp/mX1Nu
 	
 	@Test
 	void matches() {
