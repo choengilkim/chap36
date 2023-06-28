@@ -175,76 +175,6 @@ a{color:inherit;text-decoration:none;}
 }
 </style>
 
-<script type="text/javascript">
-$(document).ready(function() {
-	  $('#check-duplicate').click(function() {
-	    var id = $('#id').val(); // Get the value of the ID input field
-	    
-	    // Make an AJAX request to check for ID duplication
-	    $.ajax({
-	      url: '/user/check-duplicate', // URL to the server-side script that performs the duplication check
-	      type: 'POST',
-	      data: { id: id }, // Send the ID value as data
-	      success: function(response) {
-	        // Process the response from the server
-	        if (response.duplicated) {
-	          alert('중복된 아이디 입니다 다른아이디를 입력하세요.');
-	        } else {
-	          alert('사용가능한 아이디입니다.');
-	        }
-	      },
-	      error: function(error) {
-	        console.log(error);
-	      }
-	    });
-	  });
-
-	  // Function to refresh the sign-up form
-	  function refreshSignUpForm() {
-	    $.ajax({
-	      url: '/user/register', // URL to the server-side script that generates the sign-up form
-	      type: 'POST',
-	      success: function(response) {
-	        // Replace the existing form with the updated one
-	        $('.sign-up-htm').html(response);
-	      },
-	      error: function(error) {
-	        console.log(error);
-	      }
-	    });
-	  }
-
-	  // Event handler for the form submission
-	  $('form').submit(function(event) {
-	    event.preventDefault(); // Prevent the default form submission
-
-	    // Perform form validation and data processing here
-
-	    // Make the AJAX request to refresh the form
-	    $.ajax({
-	      url: '/user/register', // URL to the server-side script that handles form submission
-	      type: 'POST',
-	      data: $(this).serialize(), // Serialize the form data
-	      success: function(response) {
-	        // Check if the response contains form validation errors
-	        var hasErrors = $(response).find('.error').length > 0;
-
-	        if (hasErrors) {
-	          // Replace the existing form with the updated one
-	          $('.sign-up-htm').html(response);
-	        } else {
-	          // Handle successful form submission
-	          // (e.g., display a success message, redirect to a new page)
-	        }
-	      },
-	      error: function(error) {
-	        console.log(error);
-	      }
-	    });
-	  });
-	});
-</script>
-
 </head>
 <body>
 <h1><a href="/">Home</a></h1>
@@ -285,8 +215,8 @@ $(document).ready(function() {
       <form action="/user/register" method="post">
         <div class="group">
 		  <label for="id" class="label">ID</label><br>
-		  <input id="id" name="id" type="text" class="input" value="${user.id}" />
-		  <button type="button" id="check-duplicate">Check Duplication</button>
+		  <input id="id" type="text" class="input" value="${user.id}"/>
+		  <button type="button" id ="checkIdButton">Check Duplication</button>
 		</div>
         <div class="group">
           <label for="password" class="label">Password</label>
@@ -328,5 +258,28 @@ $(document).ready(function() {
 <%-- <c:if test="${exception ne null}"> --%>
 <%-- 	<h1>${exception.message}</h1> --%>
 <%-- </c:if> --%>
+<script type="text/javascript">
+$(document).ready(function() {
+	  var idInput = $("#id");
+
+	  $("#checkIdButton").click(function() {
+	    var id = idInput.val();
+
+	    $.ajax({
+	      url: "/user/checkId",
+	      type: "POST",
+	      data: { id:id },
+	      success: function(response) {
+	        if (response === true) {
+	          alert("이미 사용중인 ID입니다.");
+	          idInput.val(""); 
+	        } else {
+	            alert("사용가능한 ID입니다.");
+	          }
+	        }
+	      });
+	    });
+	});
+</script>
 </body>
 </html>

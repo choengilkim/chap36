@@ -27,5 +27,12 @@ public interface UserMapper {
 			)
 			""")
 	int insertUser(@Param("user") User user);
+	
+	@Select("""
+	        select count(*) > 0
+	          from users
+	         where id = #{id}
+	        """)
+	Boolean existsById(@Param("id") String id);
 
 }
