@@ -217,6 +217,7 @@ a{color:inherit;text-decoration:none;}
 		  <label for="id" class="label">ID</label><br>
 		  <input id="id" type="text" class="input" value="${user.id}"/>
 		  <button type="button" id ="checkIdButton">Check Duplication</button>
+		  <span id="idStatus"></span>
 		</div>
         <div class="group">
           <label for="password" class="label">Password</label>
@@ -261,20 +262,20 @@ a{color:inherit;text-decoration:none;}
 <script type="text/javascript">
 $(document).ready(function() {
 	  var idInput = $("#id");
-
+	 
 	  $("#checkIdButton").click(function() {
 	    var id = idInput.val();
-
+	    
 	    $.ajax({
 	      url: "/user/checkId",
 	      type: "POST",
 	      data: { id:id },
 	      success: function(response) {
-	        if (response === true) {
-	          alert("이미 사용중인 ID입니다.");
+	        if (response === 1) {
+ 	          alert("이미 사용중인 ID입니다.");
 	          idInput.val(""); 
 	        } else {
-	            alert("사용가능한 ID입니다.");
+ 	            alert("사용가능한 ID입니다.");
 	          }
 	        }
 	      });

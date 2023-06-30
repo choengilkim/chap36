@@ -9,3 +9,5 @@ insert into users (ID, PASSWORD, ROLE, EMAIL)values ('python', '$2a$10$S3.PCaUIw
 insert into users (ID, PASSWORD, ROLE, EMAIL)values ('java',   '$2a$10$6HKXUzZZvzmLqHtm8EKFxek.XpzqLNoZHbN4lcIoGFhqDk5.SKjI2', 'ADMIN', 'null');
 
 commit;
+
+

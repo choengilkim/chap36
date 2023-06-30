@@ -34,7 +34,7 @@ public class UserCreateController implements CreateController<UserDTO> {
 	
 	@GetMapping("/checkId")
 	@ResponseBody
-	public boolean checkId(@RequestParam("id") String id) {
+	public Integer checkId(@RequestParam("id") String id) {
 		return mapper.existsById(id);
 	}
 	
