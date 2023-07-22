@@ -256,6 +256,5 @@ a{color:inherit;text-decoration:none;}
 <%-- <c:if test="${exception ne null}"> --%>
 <%-- 	<h1>${exception.message}</h1> --%>
 <%-- </c:if> --%>
-
 </body>
 </html>
