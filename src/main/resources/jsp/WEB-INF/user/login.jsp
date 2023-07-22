@@ -206,7 +206,6 @@ a{color:inherit;text-decoration:none;}
  		</c:if>
         <div class="hr"></div>
         <div class="foot-lnk">
-          <a href="#forgot">Forgot Password?</a>
         </div>
       </form>
       </div>
@@ -215,8 +214,7 @@ a{color:inherit;text-decoration:none;}
       <form action="/user/register" method="post">
         <div class="group">
 		  <label for="id" class="label">ID</label><br>
-		  <input id="id" type="text" class="input" value="${user.id}"/>
-		  <button type="button" id ="checkIdButton">Check Duplication</button>
+		  <input id="id" name="id" type="text" class="input" value="${user.id}"/>
 		</div>
         <div class="group">
           <label for="password" class="label">Password</label>
@@ -229,14 +227,14 @@ a{color:inherit;text-decoration:none;}
         <div class="group">
           <input type="submit" class="button" value="회원 가입">
         </div>
-<%--         <c:if test="${binding.hasErrors()}"> --%>
-<%-- 		<c:forEach var="g" items="${binding.globalErrors}"> --%>
-<%-- 			<div>${g.code} ${g.defaultMessage}</div>	 --%>
-<%-- 		</c:forEach> --%>
-<%-- 		<c:forEach var="f" items="${binding.fieldErrors}"> --%>
-<%-- 			<div>${f.field} ${f.defaultMessage}</div>	 --%>
-<%-- 		</c:forEach> --%>
-<%-- 		</c:if> --%>
+        <c:if test="${binding.hasErrors()}">
+		<c:forEach var="g" items="${binding.globalErrors}">
+			<div>${g.code} ${g.defaultMessage}</div>	
+		</c:forEach>
+		<c:forEach var="f" items="${binding.fieldErrors}">
+			<div>${f.field} ${f.defaultMessage}</div>	
+		</c:forEach>
+		</c:if>
         <div class="hr"></div>
         </form>
       </div>
@@ -258,28 +256,6 @@ a{color:inherit;text-decoration:none;}
 <%-- <c:if test="${exception ne null}"> --%>
 <%-- 	<h1>${exception.message}</h1> --%>
 <%-- </c:if> --%>
-<script type="text/javascript">
-$(document).ready(function() {
-	  var idInput = $("#id");
 
-	  $("#checkIdButton").click(function() {
-	    var id = idInput.val();
-
-	    $.ajax({
-	      url: "/user/checkId",
-	      type: "POST",
-	      data: { id:id },
-	      success: function(response) {
-	        if (response === true) {
-	          alert("이미 사용중인 ID입니다.");
-	          idInput.val(""); 
-	        } else {
-	            alert("사용가능한 ID입니다.");
-	          }
-	        }
-	      });
-	    });
-	});
-</script>
 </body>
 </html>

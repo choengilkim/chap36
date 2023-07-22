@@ -32,12 +32,6 @@ public class UserCreateController implements CreateController<UserDTO> {
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 	
-	@GetMapping("/checkId")
-	@ResponseBody
-	public boolean checkId(@RequestParam("id") String id) {
-		return mapper.existsById(id);
-	}
-	
 	@Override
 	public void create(Model model, HttpServletRequest request) {
 		log.info("GET create()...");
