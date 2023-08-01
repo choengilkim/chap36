@@ -8,7 +8,7 @@
 ### Back End
 
 **프레임워크**
-- spring boot
+- spring boot 3.1.0
 
 **언어**
 - Java 17
@@ -17,10 +17,10 @@
 - spring security
 
 **DB**
-- Oracle
+- Oracle 21.3.0.0.0
 
 **DB 연동 프레임워크**
-- MyBatis
+- MyBatis 3.0.2
 
 ### Front End
 - bootstrap
